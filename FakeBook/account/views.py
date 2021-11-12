@@ -1,7 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 from .forms import LoginForm
+
+# Task for decorator is to check if current user was authenticated
+#
+@login_required
+def dashboard(request):
+    return render(request, 'account/dashboard.html', {'section': dashboard})
 
 # User login view
 def user_login(request):
