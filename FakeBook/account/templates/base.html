@@ -22,7 +22,9 @@
         </li>
     </ul>
     {% endif %}
-
+    <!--<div class="dropdown-user">
+        Witaj <p onclick="DropdownUser()"></p>
+    </div> -->
     <span class="user">
         {% if request.user.is_authenticated %}
         Witaj, {{ request.user.first_name }}!
