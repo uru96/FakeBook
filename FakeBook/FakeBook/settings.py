@@ -25,9 +25,13 @@ SECRET_KEY = 'django-insecure-7k7#=vm7_6bpo-0liddd^ndx)5_kjkyleb-jwo$r2=jbt7c_p_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
+
+
 
 ALLOWED_HOSTS = []
 
