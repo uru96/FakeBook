@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.contrib.auth import authenticate, login
+#from django.http import HttpResponse
+#from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegistrationForm
 
@@ -29,8 +29,10 @@ def register(request):
                           {'new_user': new_user})
     else:
         user_form = UserRegistrationForm()
-        return render(request, 'account/register',
-                      {'user_form': user_form})
+
+    return render(request,
+                  'account/register.html',
+                 {'user_form': user_form})
 
 
 
