@@ -26,6 +26,9 @@ SECRET_KEY = 'django-insecure-7k7#=vm7_6bpo-0liddd^ndx)5_kjkyleb-jwo$r2=jbt7c_p_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+SOCIAL_AUTH_FACEBOOK_KEY = '6620684501306460'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'b51935f55c1e8854db7255535f256120'
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 LOGIN_REDIRECT_URL = 'dashboard'
@@ -35,13 +38,28 @@ LOGOUT_URL = 'logout'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'my-site.pl', 'localhost', '127.0.0.1',
+
+]
+
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'account.authentication.EmailAuthBackend'
+    'social.backends.facebook.Facebook2OAuth2'
+
+]
+
 
 
 # Application definition
 
 
 INSTALLED_APPS = [
+    # Social site authentication
+    'social_django',
+    'django_extensions',
     # Custom applications
     'account.apps.AccountConfig',
     

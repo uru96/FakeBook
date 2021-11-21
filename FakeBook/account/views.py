@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegistrationForm, UserEditForm, UserProfileEditForm
 from .models import Profile
+from django.contrib import messages
 
 # Task for decorator is to check if current user was authenticated
 @login_required
@@ -20,12 +21,15 @@ def edit(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
+            messages.success(request, 'Zmiana profilu zakończona powodzeniem.')
+        else:
+            messages.error(request, 'Wystąpił błąd podczas edycji danych.')
     else:
         user_form = UserEditForm(instance=request.user)
         profile_form = UserProfileEditForm(instance=request.user.profile)
 
-        return render(request, 'account/edit.html', {'user_form': user_form,
-                                                     'profile_form': profile_form})
+    return render(request, 'account/edit.html', {'user_form': user_form,
+                                                 'profile_form': profile_form})
 
 
 def register(request):

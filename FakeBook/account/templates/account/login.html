@@ -4,10 +4,18 @@
 
 {% block content %}
 <h1>Logowanie</h1>
-<p>Wypełnij poniższy formularz, aby się zalogować. Jeżeli nie masz konta, możesz stworzyć je <a href="{% url "register" %}">tutaj</a>.</p>
+<p>Wypełnij poniższy formularz, aby się zalogojjjjwać. Jeżeli nie masz konta, możesz stworzyć je <a href="{% url "register" %}">tutaj</a>.</p>
 <form action="." method="post">
   {{ form.as_p }}
   {% csrf_token %}
   <p><input type="submit" value="Zaloguj"></p>
 </form>
+<div class="social">
+  <ul>
+    <li class="facebook">
+      <p>DUPAAAAAAA</p>
+      <a href="{% url "social:begin" "facebook" %}">Zaloguj się za pomocą konta Facebook</a><p>dUpa</p>
+    </li>
+  </ul>
+</div>
 {% endblock %}
